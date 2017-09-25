@@ -1,6 +1,8 @@
 package com.liuis.redis;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.liuis.redis.config.RedisConfig;
+
 import org.apache.commons.csv.CSVParser;
 import org.javatuples.Pair;
 import redis.clients.jedis.*;
@@ -40,7 +42,7 @@ public class Chapter05 {
             throws InterruptedException {
 //        Jedis conn = new Jedis("localhost");
 //        conn.select(15);
-        Jedis conn = new Jedis(REDIS_HOST, REDIS_PORT);
+    	Jedis conn = new Jedis(RedisConfig.REDIS_HOST, RedisConfig.REDIS_PORT);
         conn.select(15);
 
 //        testLogRecent(conn);

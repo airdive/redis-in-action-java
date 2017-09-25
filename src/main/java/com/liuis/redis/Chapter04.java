@@ -9,16 +9,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.liuis.redis.config.RedisConfig;
+
 public class Chapter04 {
     public static final void main(String[] args) {
         new Chapter04().run();
     }
 
-    private static final String REDIS_HOST = "123.57.47.90";
-    private static final int REDIS_PORT = 6379;
     public void run() {
 //        Jedis conn = new Jedis("localhost");
-        Jedis conn = new Jedis(REDIS_HOST, REDIS_PORT);
+    	Jedis conn = new Jedis(RedisConfig.REDIS_HOST, RedisConfig.REDIS_PORT);
         conn.select(15);
 
 //        testListItem(conn, false);

@@ -1,6 +1,8 @@
 package com.liuis.redis;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.liuis.redis.config.RedisConfig;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 import redis.clients.jedis.Tuple;
@@ -19,7 +21,8 @@ public class Chapter06 {
 
     public void run()
             throws InterruptedException, IOException {
-        Jedis conn = new Jedis("localhost");
+    	Jedis conn = new Jedis(RedisConfig.REDIS_HOST, RedisConfig.REDIS_PORT);
+    	conn.auth("liuis");
         conn.select(15);
 
         testAddUpdateContact(conn);

@@ -1,5 +1,7 @@
 package com.liuis.redis;
 import com.google.gson.Gson;
+import com.liuis.redis.config.RedisConfig;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Tuple;
 
@@ -19,7 +21,8 @@ public class Chapter02 {
     public void run()
             throws InterruptedException {
 //        Jedis conn = new Jedis("localhost");
-        Jedis conn = new Jedis(REDIS_HOST, REDIS_PORT);
+        Jedis conn = new Jedis(RedisConfig.REDIS_HOST, RedisConfig.REDIS_PORT);
+        conn.auth("liuis");
         conn.select(15);
 
         testLoginCookies(conn);

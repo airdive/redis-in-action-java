@@ -4,13 +4,12 @@ import redis.clients.jedis.ZParams;
 
 import java.util.*;
 
+import com.liuis.redis.config.RedisConfig;
+
 public class Chapter01 {
     private static final int ONE_WEEK_IN_SECONDS = 7 * 86400;
     private static final int VOTE_SCORE = 432;
     private static final int ARTICLES_PER_PAGE = 25;
-
-    private static final String REDIS_HOST = "10.83.20.59";
-    private static final int REDIS_PORT = 6379;
 
     public static final void main(String[] args) {
         new Chapter01().run();
@@ -18,7 +17,7 @@ public class Chapter01 {
 
     public void run() {
 //        Jedis conn = new Jedis("localhost");
-        Jedis conn = new Jedis(REDIS_HOST, REDIS_PORT);
+        Jedis conn = new Jedis(RedisConfig.REDIS_HOST, RedisConfig.REDIS_PORT);
         conn.auth("liuis");
         conn.select(15);
 
